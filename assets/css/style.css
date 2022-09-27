@@ -1,72 +1,80 @@
-/* rules applied to the universal select */
+/* set up some variables for color scheme */
+:root {
+    --background-color: #d9dcd6;
+    --header-background: #2a607c;
+    --secondary-text: #ffffff;
+    --primary-color: rgb(2, 7, 107);
+    --secondary-color: rgb(119, 226, 226);
+}
+
+/* default fonts and color */
 * {
     font-family: 'Courier New', Courier, monospace;
+    color: var(--primary-color);
 }
 
-/* rules applied to the body */
 body {
-    /* set background color */
-    background-color: #d9dcd6;
+    background-color: var(--background-color);
 }
 
-/* rules applied to the header */
 header {
-    /* set padding (included in width)*/
     padding: 20px;
-    /* set font-family. list contains fallbacks */
-    font: 'Lucida Sans';
-    background-color: #2a607c;
-    /* text color */
-    color: #ffffff;
+    background-color: var(--header-background);
+    align-items: center;
 }
 
-/* rules applied to h1s within the header */
 header h1 {
-    /* display inline with fixed height/width */
     display: inline-block;
-    font-size: 48px;
+    font: 48px  'Gill Sans';
+    color: var(--secondary-text);
 }
 
-/* rules applied to seo class within h1 within header */
-header h1 .seo {
-    /* alter text color for this class */
-    color: #d9dcd6;
-}
-
-/* rules applied to nav within the header */
+/* navigation bar floated right */
 header nav {
-    /* padding from top */
     padding-top: 15px;
-    /* margin from right */
     margin-right: 20px;
-    /* element floats to right of container */
     float: right;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    /* display: flex; */
+    font-size: 25px;
 }
 
-/* rules applied to unordered list with nav within header */
 header nav ul {
-    /* no list style to avoid bullets */
     list-style-type: none;
 }
 
-/* rules applied to list items within unordered lists within nav within header */
 header nav ul li {
     display: inline-flex;
     margin-left: 25px;
 }
 
-/* rules applied to anchor links */
 header nav ul li a {
-    color: #ffffff;
+    color: var(--secondary-text);
     text-decoration: none;
 }
 
+/* use grid setup to force consistent columns,
+small column used for headers, large for content */
+.content section {
+    display: grid;
+    width: 100%;
+    grid-template-columns:
+        250px 1fr;
+    text-align: left;
+    padding: 2%;
+}
 
+.content h2 {
+    font-size: 36px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
 
-/* class containing background image */
+/* section content is padded in and has a border to the left */
+.section-content {
+    padding: 10px;
+    border-left: 5px solid var(--primary-color);
+}
+
+/* portfolio is another flex section to adjust to  */
 .portfolio {
     display: flex;
     width: 100%;
@@ -74,21 +82,25 @@ header nav ul li a {
     justify-content: space-between;
 }
 
+/* formatting for projects in portfolio */
 .card {
-    position:relative;
+    position: relative;
     margin-bottom: 10px;
     transition: all 0.2s;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
-    border: lime 10px;
+    border: var(--secondary-color) 10px;
     border-style: solid;
     float: left;
+    /* grayscale filter used to make pop when hovered by adding color */
     filter: grayscale(90%);
     -webkit-filter: grayscale(90%);
     -moz-filter: grayscale(90%);
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* use pseudo element to place tag */
 .card::before {
     position: absolute;
     top: 10%;
@@ -96,11 +108,10 @@ header nav ul li a {
     color: white;
     padding: 0.5rem 1rem;
     font-weight: bold;
-    background: lime;
-  }
+    background: var(--secondary-color);
+}
 
-
-
+/* on hover remove gray scale filter and enlarge slightly */
 .card:hover {
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
@@ -110,49 +121,22 @@ header nav ul li a {
     -moz-transform: scale(1.01);
 }
 
-/* rules applied to unordered list with nav within header */
-#contact ul {
-    /* no list style to avoid bullets */
-    list-style-type: none;
-}
-
-/* rules applied to list items within unordered lists within nav within header */
-#contact li {
-    display: inline-flex;
-    margin-left: 25px;
-    justify-content: space-between;
-}
-
-#contact-headshot{
-    width: 100px;
-    height: 100px;
-    -webkit-border-radius: 60px;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 60px;
-    -moz-background-clip: padding;
-    border-radius: 60px;
-    background-clip: padding-box;
-    margin: 7px 0 0 5px;
-    float: left;
-    background-size: cover;
-    background-position: center center;  
-}
-
-
+/* formatting for small portfolio cards */
 .small {
     flex-basis: 49%;
     display: flex;
     height: 400px;
     width: 100%;
-    background-image: url("../images/headshot.jpg");
 }
 
+/* formatting for large portfolio cards */
 .big {
     flex-basis: 100%;
     width: 100%;
     height: 800px;
 }
 
+/* formatting for actual images and tags */
 #css-cheat-sheet {
     background-image: url("../images/cheatsheet.jpeg");
 }
@@ -164,6 +148,7 @@ header nav ul li a {
 #horiseon {
     background-image: url("../images/digital-marketing-meeting.jpg");
 }
+
 #horiseon::before {
     content: "Semantic HTML"
 }
@@ -171,6 +156,7 @@ header nav ul li a {
 #baseball {
     background-image: url("../images/baseball.jpeg");
 }
+
 #baseball::before {
     content: "Baseball"
 }
@@ -178,98 +164,94 @@ header nav ul li a {
 #football {
     background-image: url("../images/football.jpeg");
 }
+
 #football::before {
     content: "Football"
 }
 
-
 #nba {
     background-image: url("../images/bball.jpeg");
 }
+
 #nba::before {
     content: "Basketball"
 }
 
-
-
-/* rules applied to content class */
-.content {
-    display: inline-block;
-    /* margin from left side */
+/* formatting for list of contact information */
+#contact ul {
+    list-style-type: none;
 }
 
-/* rules applied to section elements within the content class */
-.content section {
-    display: grid;
-    width: 100%;
-    grid-template-columns:
-        250px 1fr;
-    text-align: left;
-    padding: 2%;
+#contact li {
+    display: inline-flex;
+    margin-left: 25px;
 }
 
-.section-content {
-    padding: 10px;
-    border-left: 5px solid aliceblue; 
+/* formatting for round headshot */
+#contact-headshot {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 60px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 60px;
+    -moz-background-clip: padding;
+    border-radius: 60px;
+    background-clip: padding-box;
+    margin: 7px 0 0 5px;
+    background-size: cover;
+    background-position: center center;
 }
 
-/* rules applied to the h2 elements within the content class */
-.content h2 {
-    font-size: 36px;
-    flex-basis: 20%;
-    padding: 10px;
-    padding-bottom: 0px;
-}
-
+/* when on tablet, change to single column layout */
 @media screen and (max-width: 992px) {
     .content section {
         display: grid;
         width: 100%;
         grid-template-columns: 1fr;
-        text-align: left;
         padding: 2%;
     }
-
+    
+    /* move border to top to account for new layout */
     .section-content {
         border-left: none;
-        border-top: 5px solid aliceblue;
+        border-top: 5px solid var(--primary-color);
         padding-top: 20px;
     }
-    .big{
+
+    /* reduce size of cards */
+    .big {
         height: 400px;
     }
-    .small{
+
+    .small {
         height: 200px;
     }
 
 }
 
-
-
+/* when on mobile */
 @media screen and (max-width: 768px) {
+    /* increases size of header */
     header {
         display: flex;
         justify-content: space-between;
     }
 
+    /* stack navigation bar items and moves to right hs */
     header nav ul li {
         display: flex;
         flex-direction: column;
         text-align: right;
     }
 
-    header nav {
-        align-items: right;
-    }
-
+    /* change the small cards to take full width */
     .small {
         flex-basis: 100%;
     }
 
+    /* stack list items */
     #contact li {
         display: flex;
         padding: 2px;
     }
-
-
 }
