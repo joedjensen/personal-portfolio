@@ -1,102 +1,107 @@
 /* rules applied to the universal select */
 * {
-    /* account for border and padding in element height and width */
-   box-sizing: border-box;
-   /* set default padding and margin to 0 */
-   padding: 0; /* space inside an element between border and its content */
-   margin: 0; /* space outside an element between border and another element */
+    font-family: 'Courier New', Courier, monospace;
 }
 
 /* rules applied to the body */
 body {
-   /* set background color */
-   background-color: #d9dcd6;
+    /* set background color */
+    background-color: #d9dcd6;
 }
 
 /* rules applied to the header */
 header {
-   /* set padding (included in width)*/
-   padding: 20px;
-   /* set font-family. list contains fallbacks */
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-   background-color: #2a607c;
-   /* text color */
-   color: #ffffff;
+    /* set padding (included in width)*/
+    padding: 20px;
+    /* set font-family. list contains fallbacks */
+    font: 'Lucida Sans';
+    background-color: #2a607c;
+    /* text color */
+    color: #ffffff;
 }
 
 /* rules applied to h1s within the header */
 header h1 {
-   /* display inline with fixed height/width */
-   display: inline-block;
-   font-size: 48px;
+    /* display inline with fixed height/width */
+    display: inline-block;
+    font-size: 48px;
 }
 
 /* rules applied to seo class within h1 within header */
 header h1 .seo {
-   /* alter text color for this class */
-   color: #d9dcd6;
+    /* alter text color for this class */
+    color: #d9dcd6;
 }
 
 /* rules applied to nav within the header */
 header nav {
-   /* padding from top */
-   padding-top: 15px;
-   /* margin from right */
-   margin-right: 20px;
-   /* element floats to right of container */
-   float: right;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   font-size: 20px;
-   /* display: flex; */
+    /* padding from top */
+    padding-top: 15px;
+    /* margin from right */
+    margin-right: 20px;
+    /* element floats to right of container */
+    float: right;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    /* display: flex; */
 }
 
 /* rules applied to unordered list with nav within header */
 header nav ul {
-   /* no list style to avoid bullets */
-   list-style-type: none;
+    /* no list style to avoid bullets */
+    list-style-type: none;
 }
+
 /* rules applied to list items within unordered lists within nav within header */
 header nav ul li {
-   display: inline-flex;
-   margin-left: 25px;
+    display: inline-flex;
+    margin-left: 25px;
 }
 
 /* rules applied to anchor links */
-a {
-   color: #ffffff;
-   text-decoration: none;
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
 }
 
-/* rules applied to paragraphs */
-p {
-   font-size: 16px;
-   border-left: 5px solid aliceblue;
-}
+
 
 /* class containing background image */
 .portfolio {
-    display:flex;
+    display: flex;
     width: 100%;
     flex-wrap: wrap;
-}
-.portfolio div{
-    margin-bottom:10px;
+    justify-content: space-between;
 }
 
-.portfolio a {
+.card {
+    position:relative;
+    margin-bottom: 10px;
     transition: all 0.2s;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
-    border: lime;
+    border: lime 10px;
     border-style: solid;
-}
-.portfolio a {
     float: left;
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
- }
-.portfolio a:hover {
+    filter: grayscale(90%);
+    -webkit-filter: grayscale(90%);
+    -moz-filter: grayscale(90%);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card::before {
+    position: absolute;
+    top: 10%;
+    display: block;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    background: lime;
+  }
+
+
+
+.card:hover {
     filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
@@ -104,41 +109,36 @@ p {
     -webkit-transform: scale(1.01);
     -moz-transform: scale(1.01);
 }
-#biggun{
+
+
+
+.small {
+    flex-basis: 49%;
     display: flex;
+    height: 190px;
+    width: 100%;
+    background-image: url("../images/digital-marketing-meeting.jpg");
+}
+
+.big {
+    flex-basis: 100%;
     width: 100%;
     height: 400px;
+}
+
+#biggun {
     background-image: url("../images/digital-marketing-meeting.jpg");
 }
 
-
-.little-guys{
-    display: flex;
-    height: 200px;
-    width: 100%;
-    background-image: url("../images/digital-marketing-meeting.jpg");
+#biggun::before {
+    content: "biggun"
 }
 
-/* class used to float images to the left of their containers, and add some margin */
-.float-left {
-   /* float element to left of container */
-   float: left;
-   /* add margin from the right */
-   margin-right: 25px;
-}
-
-/* rules applied to float right class */
-.float-right {
-   /* float element to right of container */
-   float: right;
-   /* add margin from the left */
-   margin-left: 25px;
-}
 
 /* rules applied to content class */
 .content {
-   display: inline-block;
-   /* margin from left side */
+    display: inline-block;
+    /* margin from left side */
 }
 
 /* rules applied to section elements within the content class */
@@ -148,40 +148,57 @@ p {
     grid-template-columns:
         250px 1fr;
     text-align: left;
-    padding:2%;
+    padding: 2%;
 }
 
-.content-content{
-    padding:10px;
+.section-content {
+    padding: 10px;
 }
 
 /* rules applied to the h2 elements within the content class */
 .content h2 {
-   margin-bottom: 20px;
-   font-size: 36px;
-   flex-basis: 20%;
+    margin-bottom: 20px;
+    font-size: 36px;
+    flex-basis: 20%;
+    border-right: 5px solid aliceblue;
 }
+
+@media screen and (max-width: 992px) {
+    .content section {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+        text-align: left;
+        padding: 2%;
+    }
+
+    .content h2 {
+        border-right: none;
+        border-bottom: 5px solid aliceblue;
+    }
+}
+
 
 
 @media screen and (max-width: 768px) {
-    header nav ul li { 
-      display: flex;
-      flex-direction: column;
-      padding-top: 0px;
-      text-align: right;
+    header {
+        display: flex;
+        justify-content: space-between;
     }
-    header nav { 
-     padding-top: 0px;
-     position: relative;
-     top: -10px;
-  }
-  .content section {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    text-align: left;
-    padding:2%;
-}
+
+    header nav ul li {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+    }
+
+    header nav {
+        align-items: right;
+    }
+
+    .small {
+        flex-basis: 100%;
+    }
+
 
 }
-  
