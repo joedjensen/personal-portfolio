@@ -1,10 +1,11 @@
 /* set up some variables for color scheme */
 :root {
-    --background-color: #d9dcd6;
-    --header-background: #2a607c;
-    --secondary-text: #ffffff;
-    --primary-color: rgb(2, 7, 107);
-    --secondary-color: rgb(119, 226, 226);
+    --background-color: white;
+    --header-background: #1E392A;
+    --secondary-text: #aeadae;
+    --header-text:#238d45;
+    --primary-color: rgb(25, 23, 23);
+    --secondary-color: #e9c893;
 }
 
 /* default fonts and color */
@@ -26,7 +27,7 @@ header {
 header h1 {
     display: inline-block;
     font: 48px  'Gill Sans';
-    color: var(--secondary-text);
+    color: var(--header-text);
 }
 
 /* navigation bar floated right */
@@ -72,6 +73,7 @@ small column used for headers, large for content */
 .section-content {
     padding: 10px;
     border-left: 5px solid var(--primary-color);
+    font-size: 24px;
 }
 
 /* portfolio is another flex section to adjust to  */
@@ -93,9 +95,9 @@ small column used for headers, large for content */
     border-style: solid;
     float: left;
     /* grayscale filter used to make pop when hovered by adding color */
-    filter: grayscale(90%);
-    -webkit-filter: grayscale(90%);
-    -moz-filter: grayscale(90%);
+    filter: grayscale(70%);
+    -webkit-filter: grayscale(70%);
+    -moz-filter: grayscale(70%);
     background-size: cover;
     background-repeat: no-repeat;
 }
