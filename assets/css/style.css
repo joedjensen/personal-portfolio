@@ -123,9 +123,19 @@ header nav ul li a {
     justify-content: space-between;
 }
 
-#contact img {
-    width:100px;
-    height: auto;
+#contact-headshot{
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 60px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 60px;
+    -moz-background-clip: padding;
+    border-radius: 60px;
+    background-clip: padding-box;
+    margin: 7px 0 0 5px;
+    float: left;
+    background-size: cover;
+    background-position: center center;  
 }
 
 
@@ -134,7 +144,7 @@ header nav ul li a {
     display: flex;
     height: 190px;
     width: 100%;
-    background-image: url("../images/digital-marketing-meeting.jpg");
+    background-image: url("../images/headshot.jpg");
 }
 
 .big {
@@ -144,7 +154,7 @@ header nav ul li a {
 }
 
 #biggun {
-    background-image: url("../images/digital-marketing-meeting.jpg");
+    background-image: url("../images/headshot.jpg");
 }
 
 #biggun::before {
