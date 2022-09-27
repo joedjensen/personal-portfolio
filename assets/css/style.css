@@ -110,6 +110,23 @@ header nav ul li a {
     -moz-transform: scale(1.01);
 }
 
+/* rules applied to unordered list with nav within header */
+#contact ul {
+    /* no list style to avoid bullets */
+    list-style-type: none;
+}
+
+/* rules applied to list items within unordered lists within nav within header */
+#contact li {
+    display: inline-flex;
+    margin-left: 25px;
+    justify-content: space-between;
+}
+
+#contact img {
+    width:100px;
+    height: auto;
+}
 
 
 .small {
@@ -153,14 +170,15 @@ header nav ul li a {
 
 .section-content {
     padding: 10px;
+    border-left: 5px solid aliceblue; 
 }
 
 /* rules applied to the h2 elements within the content class */
 .content h2 {
-    margin-bottom: 20px;
     font-size: 36px;
     flex-basis: 20%;
-    border-right: 5px solid aliceblue;
+    padding: 10px;
+    padding-bottom: 0px;
 }
 
 @media screen and (max-width: 992px) {
@@ -172,9 +190,10 @@ header nav ul li a {
         padding: 2%;
     }
 
-    .content h2 {
-        border-right: none;
-        border-bottom: 5px solid aliceblue;
+    .section-content {
+        border-left: none;
+        border-top: 5px solid aliceblue;
+        padding-top: 20px;
     }
 }
 
@@ -198,6 +217,11 @@ header nav ul li a {
 
     .small {
         flex-basis: 100%;
+    }
+
+    #contact li {
+        display: flex;
+        padding: 2px;
     }
 
 
